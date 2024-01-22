@@ -11,7 +11,7 @@ async function copyFolder() {
   const currentFiles = await fs.promises.readdir(
     pathForFolderElement,
     { withFileTypes: true },
-    (_, el) => {},
+    () => {},
   );
 
   currentFiles.forEach((el) => {

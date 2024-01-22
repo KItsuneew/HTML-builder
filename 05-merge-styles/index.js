@@ -7,7 +7,7 @@ const arrTemp = [];
 function createrBundles(arr) {
   fs.promises
     .writeFile(pathForBundle, arr.join('\n'))
-    .then((_) => {
+    .then(() => {
       console.log('success');
     })
     .catch((err) => {
@@ -22,7 +22,6 @@ fs.promises.readdir(pathForStyle, { withFileTypes: true }).then((data) => {
       fs.promises.readFile(pathElement, 'utf-8').then((dt) => {
         arrTemp.push(dt);
         createrBundles(arrTemp);
-        console.log(arrTemp);
       });
     }
   });
