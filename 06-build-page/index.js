@@ -15,12 +15,13 @@ const pathForCssBundler = path.join(pathForProject, 'style.css');
 
 const arrTemp = [];
 
-function createFolderProject() {
+async function createFolderProject() {
   try {
-    fs.promises.mkdir(pathForProject);
-    newHtml();
-    copyAssets(pathForAssetsFolder, pathForCopyAssetsFolder);
-    mergeStyles();
+    await fs.promises.rm(pathForProject, { force: true, recursive: true });
+    await fs.promises.mkdir(pathForProject, { recursive: true });
+    await newHtml();
+    await copyAssets(pathForAssetsFolder, pathForCopyAssetsFolder);
+    await mergeStyles();
   } catch (err) {
     console.log(err);
   }
