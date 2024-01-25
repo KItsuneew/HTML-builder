@@ -72,7 +72,7 @@ async function copyAssets(pathForAssetsFolder, pathForCopyAssetsFolder) {
       });
     });
 }
-function newHtml() {
+async function newHtml() {
   fs.promises.readdir(pathForComp, { withFileTypes: true }).then((el) => {
     fs.promises.readFile(pathTemplateHtml, 'utf-8').then((namesComponent) => {
       el.map((file) => {
